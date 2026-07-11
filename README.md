@@ -143,6 +143,4 @@ VITE_API_URL=http://localhost:5000
 **Mansha T R**
 https://www.linkedin.com/in/manshatr/
 
-**Mansha T R**
 
-GitHub: https://github.com/Mansha1105
