@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AiWorkoutPlan = ({ darkMode }) => {
+
+  const navigate = useNavigate();
 
   const [goal, setGoal] =
     useState("Fat Loss");
@@ -178,8 +181,7 @@ const AiWorkoutPlan = ({ darkMode }) => {
         // ✅ REDIRECT
         setTimeout(() => {
 
-          window.location.href =
-            "/workout-log";
+          navigate("/workout-log");
 
         }, 1000);
 
