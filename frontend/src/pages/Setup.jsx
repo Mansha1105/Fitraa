@@ -98,18 +98,18 @@ const Setup = () => {
 
   return (
     <div
-      className={`min-h-screen px-20 py-14 transition-all duration-500 ${
-        darkMode ? "bg-black text-white" : "bg-white text-black"
-      }`}
-    >
+  className={`min-h-screen px-5 py-8 sm:px-8 md:px-12 lg:px-20 lg:py-14 transition-all duration-500 ${
+    darkMode ? "bg-black text-white" : "bg-white text-black"
+  }`}
+>
       {/* Header */}
-      <div className="flex justify-between items-start mb-16">
+      <div className="flex justify-between items-start gap-4 mb-10 md:mb-16">
         <div>
-          <p className="text-sm tracking-[6px] uppercase text-gray-400 mb-4">
+          <p className="text-xs sm:text-sm tracking-[3px] sm:tracking-[6px] uppercase text-gray-400 mb-2 sm:mb-4">
             FITRAAA SETUP
           </p>
 
-          <h1 className="text-6xl font-bold">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
             Let’s Build Your Profile
           </h1>
         </div>
@@ -123,16 +123,16 @@ const Setup = () => {
               : "border-gray-300 hover:bg-gray-100"
           }`}
         >
-          {darkMode ? <Sun size={30} /> : <Moon size={30} />}
+          {darkMode ? <Sun size={24} /> : <Moon size={24} />}
         </button>
       </div>
 
       {/* Stepper */}
-      <div className="flex items-center mb-20">
+      <div className="flex items-center justify-between mb-12 md:mb-20">
         {steps.map((item, index) => (
           <React.Fragment key={item}>
             <div
-              className={`w-12 h-12 rounded-full flex items-center justify-center font-semibold transition-all duration-500 ${
+              className={`w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center font-semibold transition-all duration-500 ${
                 step >= item
                   ? darkMode
                     ? "bg-white text-black"
@@ -145,7 +145,7 @@ const Setup = () => {
 
             {index !== steps.length - 1 && (
               <div
-                className={`w-28 h-0.5 transition-all duration-500 ${
+                className={`flex-1 h-0.5 mx-2 md:mx-4 transition-all duration-500 ${
                   step > item
                     ? darkMode
                       ? "bg-white"
@@ -162,11 +162,11 @@ const Setup = () => {
       <div className="mt-10">
         {step === 1 && (
           <>
-            <h2 className="text-5xl font-bold mb-12">
+            <h2 className="text-3xl md:text-5xl font-bold mb-8 md:mb-12">
               Body Details
             </h2>
 
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               <div className="rounded-3xl border border-gray-700 p-6 hover:border-gray-400 transition-all">
                 <label className="text-sm text-gray-400 block mb-3">
                   Height
@@ -227,11 +227,11 @@ const Setup = () => {
 
         {step === 2 && (
           <>
-            <h2 className="text-5xl font-bold mb-12">
+            <h2 className="text-3xl md:text-5xl font-bold mb-8 md:mb-12">
               Choose Goal
             </h2>
 
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               {[
                 "Fat Loss",
                 "Muscle Gain",
@@ -243,7 +243,7 @@ const Setup = () => {
                   onClick={() =>
                     setUserData((prev) => ({ ...prev, goal }))
                   }
-                  className={`rounded-3xl border p-8 text-left transition-all hover:scale-[1.02] ${
+                  className={`rounded-3xl border p-6 md:p-8 text-left transition-all hover:scale-[1.02] ${
                     userData.goal === goal
                       ? darkMode
                         ? "bg-white text-black border-white"
@@ -260,11 +260,11 @@ const Setup = () => {
 
         {step === 3 && (
           <>
-            <h2 className="text-5xl font-bold mb-12">
+            <h2 className="text-3xl md:text-5xl font-bold mb-8 md:mb-12">
               Workout Type
             </h2>
 
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               {["Gym", "Home", "Yoga", "Cardio"].map((type) => (
                 <button
                   key={type}
@@ -291,7 +291,7 @@ const Setup = () => {
 
         {step === 4 && (
           <>
-            <h2 className="text-5xl font-bold mb-10">
+            <h2 className="text-xl md:text-2xl font-bold mb-10">
               Ready to Begin?
             </h2>
 
@@ -302,7 +302,7 @@ const Setup = () => {
                   : "border-gray-200 bg-gray-50"
               }`}
             >
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
                 <div className={`rounded-2xl p-5 ${darkMode ? "bg-white/5" : "bg-white"}`}>
                   <p className="text-sm text-gray-400 mb-2">Height</p>
                   <h3 className="text-2xl font-semibold">{userData.height} cm</h3>
@@ -339,17 +339,17 @@ const Setup = () => {
       </div>
 
       {/* Footer Buttons */}
-      <div className="flex justify-between mt-20">
+      <div className="flex flex-col sm:flex-row gap-4 sm:justify-between mt-12 md:mt-20">
         <button
           onClick={prevStep}
-          className="px-8 py-4 rounded-full border border-gray-600 hover:scale-105 transition-all"
+          className="w-full sm:w-auto px-8 py-4 rounded-full border border-gray-600 hover:scale-105 transition-all"
         >
           Back
         </button>
 
         <button
           onClick={nextStep}
-          className={`px-10 py-4 rounded-full font-semibold transition-all hover:scale-105 ${
+          className={`w-full sm:w-auto px-10 py-4 rounded-full font-semibold transition-all hover:scale-105 ${
             darkMode ? "bg-white text-black" : "bg-black text-white"
           }`}
         >
